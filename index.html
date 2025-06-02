@@ -1,46 +1,174 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>10th National Conference '25</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+    header {
+      position: relative;
+      background: url('https://i.postimg.cc/56cKXRrP/1.png') no-repeat center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 0.5em 1em;
+      border-radius: 10px;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: 400;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 0.5em 1em;
+      border-radius: 10px;
+    }
+
+    main {
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background-color: #f7f9fa;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      padding: 0.75em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #006299;
+      color: white;
+      padding: 0.75em;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.02);
+    }
+
+    .bank-info {
+      background-color: #006299;
+      color: white;
+      padding: 1rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+      font-weight: 500;
+    }
+
+    .emoji {
+      font-size: 1.2rem;
+      margin-right: 0.4em;
+    }
+  </style>
 </head>
+
 <body>
-  <div class="header-container">
-    <img class="header-img" src="https://i.postimg.cc/56cKXRrP/1.png" alt="10th National Conference '25 Banner">
-    <div class="header-overlay">
-      <h1 class="form-title">🎉 10th National Conference '25</h1>
-      <p class="event-details">
-        📅 13th August, 8:30 AM onwards<br>
-        📍 <strong>Venue:</strong> Lumina Ballroom, Cinnamon Life<br>
-        📞 <strong>Contact:</strong> +94 77 194 4015 | info@iiasl.lk
-      </p>
-    </div>
-  </div>
+  <header>
+    <h1>10th National Conference '25 🎉</h1>
+    <p>📅 13th August, 8:30 am onwards<br>📍 Lumina Ballroom, Cinnamon Life<br>📞 +94 77 194 4015 | 📧 info@iiasl.lk</p>
+  </header>
 
-  <div class="form-container">
-    <form id="registration-form">
-      <!-- Your existing form inputs go here -->
-      <h2>Registration Form</h2>
-      <!-- Placeholder for form structure -->
-      <p style="text-align:center; color: #888;">Form content goes here…</p>
+  <main>
+    <form name="registration" method="POST" data-netlify="true" enctype="multipart/form-data">
+      <input type="hidden" name="form-name" value="registration" />
+
+      <label for="civil">Civil Status</label>
+      <input type="text" id="civil" name="civil_status" required />
+
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="first_name" required />
+
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="last_name" required />
+
+      <label>IIA Member?</label>
+      <select name="iia_member" id="iia_member" required>
+        <option value="">--Select--</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <label for="member_no">If Yes, Member No.</label>
+      <input type="text" id="member_no" name="member_number" />
+
+      <label for="company">Company Name</label>
+      <input type="text" id="company" name="company_name" required />
+
+      <label for="designation">Designation</label>
+      <input type="text" id="designation" name="designation" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="contact">Contact Number (+94XXXXXXXXX)</label>
+      <input type="tel" id="contact" name="contact_number" pattern="\+94\d{9}" required />
+
+      <label>Ticket Type</label>
+      <select name="ticket_type" required>
+        <option value="">-- Select Ticket --</option>
+        <option value="IIA Member">IIA Member - LKR 21,500</option>
+        <option value="Non-Member">Non Member - LKR 18,500</option>
+      </select>
+
+      <label for="members">Add Member Details (up to 15)</label>
+      <textarea id="members" name="additional_members" placeholder="List member details here..." rows="5"></textarea>
+
+      <div class="bank-info">
+        💳 <strong>Bank Transfer Details:</strong><br>
+        Bank Name: Nations Trust Bank<br>
+        Branch Name: Nawam Mawatha<br>
+        Bank Code: 7162 | Branch Code: 024<br>
+        Account No.: 100240011078<br>
+        Account Name: The IIA Lanka Chapter<br>
+        Swift Code: NTBCLKLX
+      </div>
+
+      <label for="payment_slip">Upload Payment Slip</label>
+      <input type="file" name="payment_slip" id="payment_slip" accept="image/*,application/pdf" required />
+
+      <button type="submit">Submit Registration ✅</button>
     </form>
-
-    <div class="bank-details">
-      <h3>💳 Bank Transfer Details</h3>
-      <p>
-        <strong>Bank Name:</strong> Nations Trust Bank<br>
-        <strong>Branch:</strong> Nawam Mawatha<br>
-        <strong>Bank Code:</strong> 7162<br>
-        <strong>Branch Code:</strong> 024<br>
-        <strong>Account No.:</strong> 100240011078<br>
-        <strong>Account Name:</strong> The IIA Lanka Chapter<br>
-        <strong>Swift Code:</strong> NTBCLKLX
-      </p>
-    </div>
-  </div>
+  </main>
 </body>
+
 </html>
