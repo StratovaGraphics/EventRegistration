@@ -194,7 +194,16 @@
 </div>
 
 
-    <form onsubmit="handleSubmit(event)" class="section">
+   <form 
+  name="event-registration" 
+  method="POST" 
+  data-netlify="true" 
+  netlify-honeypot="bot-field" 
+  enctype="multipart/form-data"
+  class="section"
+>
+  <input type="hidden" name="form-name" value="event-registration" />
+
 
 
 
