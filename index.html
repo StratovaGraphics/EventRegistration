@@ -127,9 +127,23 @@
       <input type="hidden" name="form-name" value="event-registration">
 
       <h3>Main Participant</h3>
-      <label>Name <input type="text" name="main_name" required></label>
+      <label>Title
+        <select name="main_title" required>
+          <option value="">Select...</option>
+          <option>Mr</option>
+          <option>Mrs</option>
+          <option>Miss</option>
+          <option>Dr</option>
+          <option>Rev</option>
+          <option>Prof</option>
+          <option>Ms</option>
+        </select>
+      </label>
+      <label>Full Name <input type="text" name="main_name" required></label>
+      <label>Company Name <input type="text" name="main_company"></label>
+      <label>Designation <input type="text" name="main_designation"></label>
+      <label>Contact Number <input type="tel" name="main_phone" placeholder="e.g., +94771234567" required></label>
       <label>Email <input type="email" name="main_email" required></label>
-      <label>Phone <input type="tel" name="main_phone" required></label>
       <label>Ticket Type
         <select name="main_ticket" required>
           <option value="">Select...</option>
@@ -169,9 +183,23 @@
       const container = document.createElement('div');
       container.className = 'member';
       container.innerHTML = `
-        <label>Name <input type="text" name="member_${memberCount}_name" required></label>
+        <label>Title
+          <select name="member_${memberCount}_title" required>
+            <option value="">Select...</option>
+            <option>Mr</option>
+            <option>Mrs</option>
+            <option>Miss</option>
+            <option>Dr</option>
+            <option>Rev</option>
+            <option>Prof</option>
+            <option>Ms</option>
+          </select>
+        </label>
+        <label>Full Name <input type="text" name="member_${memberCount}_name" required></label>
+        <label>Company Name <input type="text" name="member_${memberCount}_company"></label>
+        <label>Designation <input type="text" name="member_${memberCount}_designation"></label>
+        <label>Contact Number <input type="tel" name="member_${memberCount}_phone" placeholder="e.g., +94771234567" required></label>
         <label>Email <input type="email" name="member_${memberCount}_email" required></label>
-        <label>Phone <input type="tel" name="member_${memberCount}_phone" required></label>
         <label>Ticket Type
           <select name="member_${memberCount}_ticket" required onchange="toggleMemberField(this)">
             <option value="">Select...</option>
