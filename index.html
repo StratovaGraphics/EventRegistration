@@ -3,9 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Event Registration</title>
+  <title>10th National Conference '25</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --primary-blue: #0066A1;
+      --accent-green: #A7CF40;
+      --light-bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --shadow-color: rgba(0, 0, 0, 0.05);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -14,7 +22,7 @@
     }
 
     body {
-      background-color: #f8f9fa;
+      background-color: var(--light-bg);
       padding: 1rem;
       color: #212529;
     }
@@ -23,22 +31,26 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 2rem;
-      background-color: #ffffff;
+      background-color: var(--card-bg);
       border-radius: 1rem;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s ease-in-out;
+      box-shadow: 0 8px 16px var(--shadow-color);
     }
 
-    .container:hover {
-      transform: translateY(-2px);
+    h2 {
+      color: var(--primary-blue);
+      font-size: 1.75rem;
     }
 
-    h2, h3, h4 {
-      margin-bottom: 1rem;
-      font-weight: 600;
+    .info {
+      margin-bottom: 1.5rem;
     }
 
-    form.section {
+    .info p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -50,243 +62,174 @@
       font-weight: 500;
     }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="file"],
+    input,
     select {
-      padding: 0.5rem;
-      border: 1px solid #ced4da;
+      padding: 0.6rem;
       border-radius: 0.5rem;
-      margin-top: 0.25rem;
-      width: 100%;
+      border: 1px solid #ccc;
+      margin-top: 0.3rem;
     }
 
     button {
-      padding: 0.75rem 1.5rem;
+      padding: 0.75rem;
       border: none;
-      border-radius: 0.75rem;
-      background-color: #0d6efd;
-      color: #fff;
-      font-weight: 500;
+      border-radius: 0.5rem;
+      background-color: var(--primary-blue);
+      color: white;
+      font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: #0b5ed7;
-      transform: scale(1.02);
+      background-color: var(--accent-green);
     }
 
     .member {
-      padding: 1rem;
-      margin-top: 1rem;
-      background-color: #f1f3f5;
+      background-color: #f1f1f1;
       border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .member:hover {
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 0.3s ease-in-out;
     }
 
     .remove-member-btn {
-      background-color: #dc3545;
+      background-color: #c0392b;
       color: white;
-      margin-bottom: 0.5rem;
-      align-self: flex-end;
+      margin-top: 0.5rem;
     }
 
-    .hidden {
-      display: none;
+    .remove-member-btn:hover {
+      background-color: #a83224;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeOut {
-      from {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      to {
-        opacity: 0;
-        transform: translateY(20px);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 600px) {
       .container {
         padding: 1rem;
       }
-
-      button {
-        width: 100%;
-      }
-
-      .remove-member-btn {
-        width: auto;
-        align-self: flex-end;
-      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <form name="event-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" class="section">
-      <input type="hidden" name="form-name" value="event-registration" />
-      <input type="hidden" name="bot-field" />
+    <h2>10th National Conference '25</h2>
+    <div class="info">
+      <p>August 13th, 8:30 AM onwards, Cinnamon Life, Lumina Ballroom</p>
+      <p>Get in touch: +94 77 194 4015 // info@iiasl.lk</p>
+    </div>
 
-      <h2>Event Registration Form</h2>
+    <form name="event-registration" method="POST" data-netlify="true" enctype="multipart/form-data">
+      <input type="hidden" name="form-name" value="event-registration">
 
       <h3>Main Participant</h3>
-      <label>Civil Status:
-        <select name="civilStatus" required>
-          <option>Mr</option>
-          <option>Mrs</option>
-          <option>Ms</option>
-          <option>Miss</option>
-          <option>Dr</option>
-          <option>Prof</option>
-          <option>Rev</option>
+      <label>Name <input type="text" name="main_name" required></label>
+      <label>Email <input type="email" name="main_email" required></label>
+      <label>Phone <input type="tel" name="main_phone" required></label>
+      <label>Ticket Type
+        <select name="main_ticket" required>
+          <option value="">Select...</option>
+          <option value="iia_member">IIA Member</option>
+          <option value="non_member">Non-Member</option>
         </select>
       </label>
-      <label>First Name: <input type="text" name="firstName" required /></label>
-      <label>Last Name: <input type="text" name="lastName" required /></label>
-      <label>IIA Member:
-        <select name="iiaMember" required>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-      </label>
-      <label>Membership No (if applicable): <input type="text" name="memberNo" /></label>
-      <label>Company Name: <input type="text" name="companyName" required /></label>
-      <label>Designation: <input type="text" name="designation" required /></label>
-      <label>Email: <input type="email" name="email" required /></label>
-      <label>Contact No: <input type="tel" name="contactNo" required /></label>
-      <label>Ticket Type:
-        <select name="ticketPrice" required onchange="updateTotal()">
-          <option value="18500">IIA Member - LKR 18,500</option>
-          <option value="21500">Non-Member - LKR 21,500</option>
-        </select>
-      </label>
-      <label>Payment Slip: <input type="file" name="paymentSlip" accept="image/*,application/pdf" required /></label>
-
-      <div id="membersList">
-        <h3>Additional Members (Max 15)</h3>
+      <div class="main-member-number" style="display:none">
+        <label>IIA Member Number <input type="text" name="main_member_number"></label>
       </div>
 
+      <h3>Additional Members (Max 15)</h3>
+      <div id="members"></div>
       <button type="button" onclick="addMember()">Add Member</button>
 
-      <h3>Total Participants: <span id="totalCount">1</span></h3>
-      <h3>Total Amount: LKR <span id="totalAmount">0</span></h3>
+      <h4>Total Participants: <span id="totalParticipants">1</span></h4>
+      <h4>Total Amount: LKR <span id="totalAmount">0</span></h4>
+
+      <label>Upload Payment Slip <input type="file" name="payment_slip" required></label>
 
       <button type="submit">Submit Registration</button>
     </form>
-
-    <script>
-      let memberCount = 0;
-      const maxMembers = 15;
-      const memberElements = new Map();
-
-      function addMember() {
-        if (memberCount >= maxMembers) return alert("Maximum 15 additional members allowed.");
-
-        memberCount++;
-        const list = document.getElementById('membersList');
-        const div = document.createElement('div');
-        div.className = 'member';
-        const memberId = `member-${Date.now()}`;
-        div.id = memberId;
-        memberElements.set(memberId, div);
-
-        div.innerHTML = `
-          <button type="button" class="remove-member-btn" onclick="removeMember('${memberId}')">Remove</button>
-          <h4>Member ${memberCount}</h4>
-          <label>Civil Status:
-            <select name="member${memberCount}_civilStatus" required>
-              <option>Mr</option>
-              <option>Mrs</option>
-              <option>Ms</option>
-              <option>Miss</option>
-              <option>Dr</option>
-              <option>Prof</option>
-              <option>Rev</option>
-            </select>
-          </label>
-          <label>First Name: <input type="text" name="member${memberCount}_firstName" required /></label>
-          <label>Last Name: <input type="text" name="member${memberCount}_lastName" required /></label>
-          <label>Designation: <input type="text" name="member${memberCount}_designation" required /></label>
-          <label>Contact No: <input type="tel" name="member${memberCount}_contact" required /></label>
-          <label>Email: <input type="email" name="member${memberCount}_email" required /></label>
-          <label>Ticket Type:
-            <select name="member${memberCount}_ticketPrice" required onchange="handleTicketChange(this, '${memberId}'); updateTotal()">
-              <option value="18500">IIA Member - LKR 18,500</option>
-              <option value="21500">Non-Member - LKR 21,500</option>
-            </select>
-          </label>
-          <label class="hidden" id="${memberId}-memberNo-label">Membership No:
-            <input type="text" name="member${memberCount}_memberNo" />
-          </label>
-        `;
-        list.appendChild(div);
-        updateTotal();
-      }
-
-      function removeMember(memberId) {
-        const div = memberElements.get(memberId);
-        if (div) {
-          div.style.animation = 'fadeOut 0.3s ease';
-          div.addEventListener('animationend', () => {
-            div.remove();
-            memberElements.delete(memberId);
-            updateTotal();
-          });
-        }
-      }
-
-      function handleTicketChange(selectElement, memberId) {
-        const memberNoLabel = document.getElementById(`${memberId}-memberNo-label`);
-        if (selectElement.value === "18500") {
-          memberNoLabel.classList.remove('hidden');
-        } else {
-          memberNoLabel.classList.add('hidden');
-        }
-      }
-
-      function updateTotal() {
-        let total = 0;
-        let count = 1;
-
-        const mainTicket = document.querySelector('select[name="ticketPrice"]');
-        if (mainTicket) {
-          const val = parseInt(mainTicket.value);
-          if (!isNaN(val)) total += val;
-        }
-
-        for (const el of memberElements.values()) {
-          const select = el.querySelector('select[name$="_ticketPrice"]');
-          if (select) {
-            count++;
-            const val = parseInt(select.value);
-            if (!isNaN(val)) total += val;
-          }
-        }
-
-        document.getElementById("totalCount").textContent = count;
-        document.getElementById("totalAmount").textContent = total.toLocaleString();
-      }
-    </script>
   </div>
+
+  <script>
+    const ticketPrices = {
+      iia_member: 15000,
+      non_member: 20000,
+    };
+
+    let memberCount = 0;
+
+    function addMember() {
+      if (memberCount >= 15) return;
+      memberCount++;
+
+      const container = document.createElement('div');
+      container.className = 'member';
+      container.innerHTML = `
+        <label>Name <input type="text" name="member_${memberCount}_name" required></label>
+        <label>Email <input type="email" name="member_${memberCount}_email" required></label>
+        <label>Phone <input type="tel" name="member_${memberCount}_phone" required></label>
+        <label>Ticket Type
+          <select name="member_${memberCount}_ticket" required onchange="toggleMemberField(this)">
+            <option value="">Select...</option>
+            <option value="iia_member">IIA Member</option>
+            <option value="non_member">Non-Member</option>
+          </select>
+        </label>
+        <div class="member-number" style="display:none">
+          <label>IIA Member Number <input type="text" name="member_${memberCount}_member_number"></label>
+        </div>
+        <button type="button" class="remove-member-btn" onclick="removeMember(this)">Remove</button>
+      `;
+      document.getElementById('members').appendChild(container);
+      updateCounts();
+    }
+
+    function removeMember(btn) {
+      btn.closest('.member').remove();
+      memberCount--;
+      updateCounts();
+    }
+
+    function updateCounts() {
+      const participants = 1 + memberCount;
+      let amount = 0;
+
+      const mainType = document.querySelector('select[name="main_ticket"]').value;
+      if (ticketPrices[mainType]) amount += ticketPrices[mainType];
+
+      const tickets = document.querySelectorAll('#members select');
+      tickets.forEach(t => {
+        if (ticketPrices[t.value]) amount += ticketPrices[t.value];
+      });
+
+      document.getElementById('totalParticipants').textContent = participants;
+      document.getElementById('totalAmount').textContent = amount;
+    }
+
+    function toggleMemberField(select) {
+      const memberDiv = select.closest('.member');
+      const field = memberDiv.querySelector('.member-number');
+      if (select.value === 'iia_member') {
+        field.style.display = 'block';
+      } else {
+        field.style.display = 'none';
+      }
+      updateCounts();
+    }
+
+    document.querySelector('select[name="main_ticket"]').addEventListener('change', function() {
+      const div = document.querySelector('.main-member-number');
+      if (this.value === 'iia_member') {
+        div.style.display = 'block';
+      } else {
+        div.style.display = 'none';
+      }
+      updateCounts();
+    });
+  </script>
 </body>
 </html>
