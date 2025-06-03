@@ -388,7 +388,50 @@
 
     document.getElementById("ticketPrice").addEventListener("change", updateTotal);
 
-  </script>
-</body>
+<!-- ... (Your full code above remains unchanged until the bottom of the body) -->
 
+<!-- Hidden dummy form for Netlify to register dynamic fields -->
+<form name="event-registration" netlify hidden>
+  <input type="text" name="firstName">
+  <input type="text" name="lastName">
+  <input type="text" name="companyName">
+  <input type="email" name="email">
+  <input type="tel" name="contactNo">
+  <input type="text" name="designation">
+  <input type="file" name="paymentSlip">
+  <input type="text" name="memberNo">
+  
+  <!-- Dummy inputs for up to 15 additional members -->
+  <!-- These match the dynamic field names created in JavaScript -->
+  <!-- Netlify only needs to see the field names once to register them -->
+  <!-- Looping to generate these automatically, but written out here manually for simplicity -->
+  <input type="text" name="memberNo1">
+  <input type="text" name="memberCivilStatus1">
+  <input type="text" name="memberFirstName1">
+  <input type="text" name="memberLastName1">
+  <input type="text" name="memberDesignation1">
+  <input type="email" name="memberEmail1">
+  <input type="tel" name="memberContact1">
+
+  <input type="text" name="memberNo2">
+  <input type="text" name="memberCivilStatus2">
+  <input type="text" name="memberFirstName2">
+  <input type="text" name="memberLastName2">
+  <input type="text" name="memberDesignation2">
+  <input type="email" name="memberEmail2">
+  <input type="tel" name="memberContact2">
+
+  <!-- ... repeat for members 3–15 ... -->
+
+  <input type="text" name="memberNo15">
+  <input type="text" name="memberCivilStatus15">
+  <input type="text" name="memberFirstName15">
+  <input type="text" name="memberLastName15">
+  <input type="text" name="memberDesignation15">
+  <input type="email" name="memberEmail15">
+  <input type="tel" name="memberContact15">
+</form>
+
+</body>
 </html>
+
