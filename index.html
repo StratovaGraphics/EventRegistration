@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Event Registration</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -21,7 +19,6 @@
         opacity: 0;
         transform: translateY(20px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
@@ -54,14 +51,8 @@
       margin-bottom: 10px;
     }
 
-    h3 {
-      color: #ffffff
-    }
-
-    h4 {
+    h3, h4 {
       color: #006299;
-      font-weight: 600;
-      margin-bottom: 14px;
     }
 
     label {
@@ -83,6 +74,7 @@
       font-size: 1rem;
       margin-top: 6px;
       box-sizing: border-box;
+      color: #333;
     }
 
     .member {
@@ -159,22 +151,10 @@
       margin-top: 24px;
     }
 
-    .header-text h2 {
-      font-size: 2.5rem;
-      margin: 0;
-      color: #006299;
-    }
-
     .header-container {
       position: relative;
       width: 100%;
       margin-bottom: 20px;
-    }
-
-    .header-img {
-      width: 100%;
-      border-radius: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .header-overlay {
@@ -186,10 +166,9 @@
     }
 
     .form-title {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 600;
       margin: 0;
-      font-family: 'Poppins', sans-serif;
     }
 
     .event-details {
@@ -200,179 +179,130 @@
     }
   </style>
 </head>
-
 <body>
   <div class="container">
-    <div class="header-container">
-      <img class="header-img" src="https://i.postimg.cc/56cKXRrP/1.png" alt="10th National Conference '25 Banner">
-      <div class="header-overlay">
-        <h1 class="form-title">10th National Conference '25</h1>
-        <p class="event-details">
-          13th August, 8:30 AM onwards<br>
-          <strong>Venue:</strong> Lumina Ballroom, Cinnamon Life<br>
-          <strong>Contact:</strong> +94 77 194 4015 &nbsp;|&nbsp; info@iiasl.lk
-        </p>
-      </div>
-    </div>
+    <!-- your original form goes here -->
 
-    <form name="event-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field"
-      enctype="multipart/form-data" class="section">
-      <input type="hidden" name="form-name" value="event-registration" />
-      <input type="hidden" name="bot-field" />
-
-      <h2>Event Registration Form</h2>
-
-      <h3>Main Participant</h3>
-
-      <label>Civil Status:
-        <select name="civilStatus" required>
-          <option>Mr</option>
-          <option>Mrs</option>
-          <option>Ms</option>
-          <option>Miss</option>
-          <option>Dr</option>
-          <option>Prof</option>
-          <option>Rev</option>
-        </select>
-      </label><br><br>
-
-      <label>First Name: <input type="text" name="firstName" required></label><br><br>
-      <label>Last Name: <input type="text" name="lastName" required></label><br><br>
-
-      <label>IIA Member:
-        <select name="iiaMember" id="isMember" onchange="toggleMemberNo(this); updateTotal();">
-          <option value="No">No</option>
-          <option value="Yes">Yes</option>
-        </select>
-      </label><br><br>
-
-      <div id="memberNoDiv" style="display:none;">
-        <label>Member No: <input type="text" name="memberNo"></label><br><br>
-      </div>
-
-      <label>Company Name: <input type="text" name="companyName" required></label><br><br>
-      <label>Designation: <input type="text" name="designation" required></label><br><br>
-      <label>Email: <input type="email" name="email" required></label><br><br>
-      <label>Contact No (+Country Code): <input type="tel" name="contactNo" pattern="\+\d{1,3}\d{10}" placeholder="+941234567890" required></label><br><br>
-
-      <div id="membersList">
-        <h3>Additional Members (Max 15)</h3>
-      </div>
-
-      <button type="button" onclick="addMember()">Add Member</button><br><br>
-
-      <div class="bank-details">
-        <h3>Bank Transfer Information</h3>
-        Bank Name: <strong>Nations Trust Bank</strong><br>
-        Branch Name: <strong>Nawam Mawatha</strong><br>
-        Bank Code: <strong>7162</strong> &nbsp;&nbsp;&nbsp; Branch Code: <strong>024</strong><br>
-        Account No.: <strong>100240011078</strong><br>
-        Account Name: <strong>The IIA Lanka Chapter</strong><br>
-        SWIFT Code: <strong>NTBCLKLX</strong>
-      </div>
-
-      <br>
-      <label><strong>Attach Payment Slip:</strong>
-        <input type="file" name="paymentSlip" required>
-      </label><br><br>
-
-      <h3>Total Participants: <span id="totalCount">1</span></h3>
-      <h3>Total Amount: LKR <span id="totalAmount">0</span></h3>
-
-      <button type="submit">Submit Registration</button>
+    <!-- Hidden Dummy Form for Netlify to register all fields -->
+    <form name="event-registration" netlify hidden>
+      <input name="civilStatus" />
+      <input name="firstName" />
+      <input name="lastName" />
+      <input name="iiaMember" />
+      <input name="memberNo" />
+      <input name="companyName" />
+      <input name="designation" />
+      <input name="email" />
+      <input name="contactNo" />
+      <input name="ticketPrice" />
+      <input name="paymentSlip" type="file" />
+      <!-- Dummy fields for max 15 members -->
+      <input name="member1_civilStatus" />
+      <input name="member1_firstName" />
+      <input name="member1_lastName" />
+      <input name="member1_designation" />
+      <input name="member1_contact" />
+      <input name="member1_email" />
+      <input name="member1_ticketPrice" />
+      <input name="member2_civilStatus" />
+      <input name="member2_firstName" />
+      <input name="member2_lastName" />
+      <input name="member2_designation" />
+      <input name="member2_contact" />
+      <input name="member2_email" />
+      <input name="member2_ticketPrice" />
+      <input name="member3_civilStatus" />
+      <input name="member3_firstName" />
+      <input name="member3_lastName" />
+      <input name="member3_designation" />
+      <input name="member3_contact" />
+      <input name="member3_email" />
+      <input name="member3_ticketPrice" />
+      <input name="member4_civilStatus" />
+      <input name="member4_firstName" />
+      <input name="member4_lastName" />
+      <input name="member4_designation" />
+      <input name="member4_contact" />
+      <input name="member4_email" />
+      <input name="member4_ticketPrice" />
+      <input name="member5_civilStatus" />
+      <input name="member5_firstName" />
+      <input name="member5_lastName" />
+      <input name="member5_designation" />
+      <input name="member5_contact" />
+      <input name="member5_email" />
+      <input name="member5_ticketPrice" />
+      <input name="member6_civilStatus" />
+      <input name="member6_firstName" />
+      <input name="member6_lastName" />
+      <input name="member6_designation" />
+      <input name="member6_contact" />
+      <input name="member6_email" />
+      <input name="member6_ticketPrice" />
+      <input name="member7_civilStatus" />
+      <input name="member7_firstName" />
+      <input name="member7_lastName" />
+      <input name="member7_designation" />
+      <input name="member7_contact" />
+      <input name="member7_email" />
+      <input name="member7_ticketPrice" />
+      <input name="member8_civilStatus" />
+      <input name="member8_firstName" />
+      <input name="member8_lastName" />
+      <input name="member8_designation" />
+      <input name="member8_contact" />
+      <input name="member8_email" />
+      <input name="member8_ticketPrice" />
+      <input name="member9_civilStatus" />
+      <input name="member9_firstName" />
+      <input name="member9_lastName" />
+      <input name="member9_designation" />
+      <input name="member9_contact" />
+      <input name="member9_email" />
+      <input name="member9_ticketPrice" />
+      <input name="member10_civilStatus" />
+      <input name="member10_firstName" />
+      <input name="member10_lastName" />
+      <input name="member10_designation" />
+      <input name="member10_contact" />
+      <input name="member10_email" />
+      <input name="member10_ticketPrice" />
+      <input name="member11_civilStatus" />
+      <input name="member11_firstName" />
+      <input name="member11_lastName" />
+      <input name="member11_designation" />
+      <input name="member11_contact" />
+      <input name="member11_email" />
+      <input name="member11_ticketPrice" />
+      <input name="member12_civilStatus" />
+      <input name="member12_firstName" />
+      <input name="member12_lastName" />
+      <input name="member12_designation" />
+      <input name="member12_contact" />
+      <input name="member12_email" />
+      <input name="member12_ticketPrice" />
+      <input name="member13_civilStatus" />
+      <input name="member13_firstName" />
+      <input name="member13_lastName" />
+      <input name="member13_designation" />
+      <input name="member13_contact" />
+      <input name="member13_email" />
+      <input name="member13_ticketPrice" />
+      <input name="member14_civilStatus" />
+      <input name="member14_firstName" />
+      <input name="member14_lastName" />
+      <input name="member14_designation" />
+      <input name="member14_contact" />
+      <input name="member14_email" />
+      <input name="member14_ticketPrice" />
+      <input name="member15_civilStatus" />
+      <input name="member15_firstName" />
+      <input name="member15_lastName" />
+      <input name="member15_designation" />
+      <input name="member15_contact" />
+      <input name="member15_email" />
+      <input name="member15_ticketPrice" />
     </form>
   </div>
-
-  <script>
-    let memberCount = 0;
-    const maxMembers = 15;
-
-    function toggleMemberNo(select) {
-      document.getElementById("memberNoDiv").style.display = select.value === "Yes" ? "block" : "none";
-    }
-
-    function addMember() {
-      if (memberCount >= maxMembers) {
-        alert("Maximum of 15 members allowed.");
-        return;
-      }
-      memberCount++;
-      const container = document.createElement("div");
-      container.className = "member";
-      container.dataset.memberId = memberCount;
-      container.innerHTML = `
-        <button type="button" class="remove-member-btn" onclick="removeMember(this)">Remove</button>
-        <h4>Member ${memberCount}</h4>
-        <label>Member No: <input type="text" name="memberNo${memberCount}" required></label><br>
-        <label>Civil Status:
-          <select name="memberCivilStatus${memberCount}" required>
-            <option>Mr</option>
-            <option>Mrs</option>
-            <option>Ms</option>
-            <option>Miss</option>
-            <option>Dr</option>
-            <option>Prof</option>
-            <option>Rev</option>
-          </select>
-        </label><br>
-        <label>First Name: <input type="text" name="memberFirstName${memberCount}" required></label><br>
-        <label>Last Name: <input type="text" name="memberLastName${memberCount}" required></label><br>
-        <label>Designation: <input type="text" name="memberDesignation${memberCount}" required></label><br>
-        <label>Email: <input type="email" name="memberEmail${memberCount}" required></label><br>
-        <label>Contact No (+Code): <input type="tel" name="memberContact${memberCount}" pattern="\\+\\d{1,3}\\d{10}" required></label>
-      `;
-      document.getElementById("membersList").appendChild(container);
-      updateTotal();
-    }
-
-    function removeMember(button) {
-      button.parentElement.remove();
-      memberCount--;
-      renumberMembers();
-      updateTotal();
-    }
-
-    function renumberMembers() {
-      const members = document.querySelectorAll("#membersList .member");
-      let count = 0;
-      members.forEach((memberDiv) => {
-        count++;
-        memberDiv.querySelector("h4").textContent = `Member ${count}`;
-        memberDiv.dataset.memberId = count;
-        memberDiv.querySelector(`input[name^="memberNo"]`).name = `memberNo${count}`;
-        memberDiv.querySelector(`select[name^="memberCivilStatus"]`).name = `memberCivilStatus${count}`;
-        memberDiv.querySelector(`input[name^="memberFirstName"]`).name = `memberFirstName${count}`;
-        memberDiv.querySelector(`input[name^="memberLastName"]`).name = `memberLastName${count}`;
-        memberDiv.querySelector(`input[name^="memberDesignation"]`).name = `memberDesignation${count}`;
-        memberDiv.querySelector(`input[name^="memberEmail"]`).name = `memberEmail${count}`;
-        memberDiv.querySelector(`input[name^="memberContact"]`).name = `memberContact${count}`;
-      });
-      memberCount = count;
-    }
-
-    function updateTotal() {
-      const isMember = document.getElementById("isMember").value === "Yes";
-      const ticketPrice = isMember ? 18500 : 21500;
-      const totalParticipants = 1 + memberCount;
-      const totalAmount = ticketPrice * totalParticipants;
-
-      document.getElementById("totalCount").textContent = totalParticipants;
-      document.getElementById("totalAmount").textContent = totalAmount.toLocaleString();
-    }
-
-    window.addEventListener("load", updateTotal);
-  </script>
-
-  <form name="event-registration" netlify hidden>
-    <input type="text" name="firstName">
-    <input type="text" name="lastName">
-    <input type="text" name="companyName">
-    <input type="email" name="email">
-    <input type="tel" name="contactNo">
-    <input type="text" name="designation">
-    <input type="file" name="paymentSlip">
-    <input type="text" name="memberNo">
-  </form>
 </body>
-
 </html>
